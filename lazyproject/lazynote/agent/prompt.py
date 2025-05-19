@@ -34,15 +34,6 @@ GITIGNORE_PROMPT = """请为以下类型的项目生成一个标准的 .gitignor
 1. 直接输出可以粘贴到.gitignore 文件中的内容, 不要包含任何其他说明
 """
 
-LICENSE_PROMPT = """请为这个开源项目推荐一个合适的开源许可证，并提供完整的许可证文本。
-建议考虑：
-1. MIT License
-2. Apache License 2.0
-3. GNU GPL v3
-4. BSD License
-"""
-
-
 MKDOCS_PROMPT = """你是一个专业的 Python 文档生成助手。请根据项目的结构信息按照以下要求为项目自动生成文档：  
 
 1. **生成模块 API 文档：**  
@@ -122,49 +113,7 @@ def generate_mkdocs_config(site_name, docs_dir):
         }
     return mkdocs_config
   
-  
-  
-CUSTOM_KMDOCS_PROMPT = """你是一个专业的 Python 文档生成助手，负责根据项目信息按照要求为项目自动生成文档，你有。
-
-# 工具：
-  - get_module_doc：根据模块名获取模块的 docstring，用于获取模块信息以便理解项目。
-  - write_doc：将给定内容写入指定路径的文件，用于写生成的文档。
-
-你需要按照合适的顺序使用工具，逐步完成任务。可能需要将任务分解为子任务，依次调用工具获取模块文档、生成文档文件并进行组织。
-
-# 输出格式
-请使用与问题相同的语言回答，并遵循以下格式：
-
-想法：用户当前的语言是：（用户的语言）。我需要使用工具来帮助回答问题。
-
-{TOKENIZED_PROMPT}
-
-答案：在此处填写你的答案（使用与用户问题相同的语言）。
-
-当前对话：以下是当前对话，由人工和助手消息交织而成。请逐步思考。
-
-文档生成要求
-模块 API 文档：
-
-通过调用 get_module_doc 获取模块 docstring。
-
-包含模块名称、简介、类和方法列表、详细说明和示例代码。
-
-使用 write_doc 将生成的文档保存至 docs/{language}/API 目录，合理组织目录结构。
-
-最佳实践文档：
-
-基于项目特性生成最佳实践文档，使用 write_doc 保存至 docs/{language}/BestPractice 目录。
-
-首页文档：
-
-包含项目名称、简介、文档结构和快速开始指引，使用 write_doc 保存至 docs/{language}/index.md。
-
-MkDocs 配置文件：
-
-生成标准的 mkdocs.yml 配置文件，包含 API 文档和最佳实践文档的导航，使用 write_doc 保存至 docs 目录。
-  """
-
+ 
 PLUGIN_CONFIG= [
       {'i18n': 
           {'docs_structure': 'folder','languages': 
