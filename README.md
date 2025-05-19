@@ -39,7 +39,6 @@
 ---
 
 ## 使用方法
-### 1. 生成项目文档
 使用 `GitAgent` 生成项目文档：
 ```python
 from lazyproject.lazynote.agent.git_agent import GitAgent
@@ -47,22 +46,6 @@ from lazyproject.lazynote.agent.git_agent import GitAgent
 agent = GitAgent(project_path="your_project_path")
 agent._generate_readme()
 agent._generate_mkdocs()
-```
-
-### 2. 处理文档字符串
-使用 `SimpleManager` 处理文档字符串：
-```python
-from lazyproject.lazynote.manager.simple import SimpleManager
-
-manager = SimpleManager()
-manager.handle_polish(old_docstring="Your docstring", node_code="Your code")
-```
-
-### 3. 分析项目结构
-使用 `GitAgent` 分析项目结构：
-```python
-structure = agent._analyze_project_structure()
-print(structure)
 ```
 
 ---
